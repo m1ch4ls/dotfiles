@@ -1,1 +1,1 @@
-[ "$PROFILE_SOURCED" != "1" ] || . $HOME/.bash_profile
+[ -z "${PROFILE_SOURCED+x}" ] || . $HOME/.bash_profile
