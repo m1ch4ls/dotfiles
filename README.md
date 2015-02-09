@@ -1,14 +1,12 @@
 # Sync dotfiles!
 ### Feel free to use for inspiration!
 
-### For .bash_profile
+To install it, just execute the following command:
 
-`wget -q -O - "$@" https://raw.githubusercontent.com/m1ch4ls/dotfiles/master/.bash_prompt > ~/.bash_prompt`
+```bash
+# If you have curl installed ########################################
+curl -Ls https://raw.github.com/m1ch4ls/dotfiles/master/install | bash
 
-`wget -q -O - "$@" https://raw.githubusercontent.com/m1ch4ls/dotfiles/master/.bash_profile > ~/.bash_profile`
-
-### Or for the .bash_alias
-
-`wget -q -O - "$@" https://raw.githubusercontent.com/m1ch4ls/dotfiles/master/.bash_aliases > ~/.bash_aliases`
-
-And then I can easily pull in new changes to whatever machine I'm running on.
+# If you have wget installed ########################################
+wget -q -O - https://raw.github.com/m1ch4ls/dotfiles/master/install | bash
+```
