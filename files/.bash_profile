@@ -1,5 +1,7 @@
 # Using some customization based on: https://github.com/mathiasbynens/dotfiles
-. ~/.bash_prompt
+if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+  . ~/.bash_prompt
+fi
 
 export PATH="~/bin:~/software/bin:~/local/bin:/opt/bin:$PATH"
 
