@@ -41,4 +41,13 @@ unzip -q $dotfiles_zip -d /tmp
 # Copy files
 find ${dotfiles_dir}/files -maxdepth 1 -mindepth 1 -exec cp -R "{}" $HOME/ \;
 
+# Set up local directory
+mkdir -p $HOME/local
+[ -x '/usr/bin/chflags' ] && chflags hidden $HOME/local
+
+# Copy binaries to ~/local/bin
+echo "#=> Copying binaries"
+cp -R $dotfiles_dir/files/bin $HOME/local
+find $HOME/local/bin -type f -exec chmod +x {} \;
+
 echo '#=> Done! Restart your terminal!'

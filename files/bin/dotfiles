@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+function exit_with_message() {
+  echo $1
+  exit 1
+}
+
+curl_available=$(command -v curl)
+wget_available=$(command -v wget)
+
+dotfiles_install=https://raw.github.com/m1ch4ls/dotfiles/master/install.sh
+
+if [[ "$curl_available" != "" ]]; then
+  curl -Ls $dotfiles_install | bash
+elif [[ "$wget_available" != "" ]]; then
+  wget -q -O - $dotfiles_install | bash
+else
+  exit_with_message "#=> Please make sure curl or wget is installed"
+fi
