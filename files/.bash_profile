@@ -3,6 +3,8 @@ if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
   . ~/.bash_prompt
 fi
 
+export PROFILE_SOURCED=1
+
 export PATH="~/bin:~/software/bin:~/local/bin:/opt/bin:$PATH"
 
 export EDITOR="subl -w"
@@ -73,6 +75,8 @@ function b() {
 function mcd() {
   mkdir -p "$1" && cd "$1";
 }
+
+function profile
 
 # search for process
 alias tm='ps -ef | grep'

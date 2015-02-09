@@ -1,1 +1,1 @@
-. $HOME/.bash_profile
+[$PROFILE_SOURCED != "1"] || . $HOME/.bash_profile
