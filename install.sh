@@ -7,6 +7,14 @@ function exit_with_message() {
   exit 1
 }
 
+function on_exit()
+{
+  rm -f $dotfiles_zip
+  rm -rf $dotfiles_dir
+}
+
+trap on_exit EXIT
+
 # First, retrieve the zip file from Github.
 # It will use wget or curl (whichever is defined.)
 curl_available=$(command -v curl)
@@ -16,7 +24,6 @@ unzip_available=$(command -v unzip)
 dotfiles_zip=/tmp/dotfiles-master.zip
 dotfiles_dir=/tmp/dotfiles-master
 dotfiles_url=https://github.com/m1ch4ls/dotfiles/archive/master.zip
-user_file_backup="/tmp/user_${RANDOM}.sh"
 
 if [[ "$unzip_available" = "" ]]; then
   exit_with_message "#=> Make sure you have the unzip command available"
