@@ -12,6 +12,8 @@ export PATH=./node_modules/.bin:~/global_npm/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export NODE_PATH="$NODE_PATH:$HOME/global_npm/lib/node_modules"
+
 [[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source ~/perl5/perlbrew/etc/bashrc # This loads perlbrew
 
 # Increase size of bash history
