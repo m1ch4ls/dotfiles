@@ -54,7 +54,7 @@ mkdir -p $HOME/local
 
 # Copy binaries to ~/local/bin
 echo "#=> Copying binaries"
-cp -R $dotfiles_dir/files/bin $HOME/local
+cp -R $dotfiles_dir/bin $HOME/local
 find $HOME/local/bin -type f -exec chmod +x {} \;
 
 echo '#=> Done! Restart your terminal!'
