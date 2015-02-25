@@ -1,1 +1,3 @@
-[ -z "${PROFILE_SOURCED+x}" ] && . $HOME/.bash_profile
+if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+  . $HOME/.bash_profile
+fi

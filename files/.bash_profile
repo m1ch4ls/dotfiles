@@ -3,20 +3,20 @@ if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
   . ~/.bash_prompt
 fi
 
-export PROFILE_SOURCED=1
-
 export PATH="~/bin:~/software/bin:~/local/bin:/opt/bin:$PATH"
 
 export EDITOR="subl -w"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
-export PATH=./node_modules/.bin:~/global_npm/bin:$PATH
+if [ -d $HOME/global_npm ]; then
+  export PATH=./node_modules/.bin:$HOME/global_npm/bin:$PATH
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export NODE_PATH="$NODE_PATH:$HOME/global_npm/lib/node_modules"
+  export NODE_PATH="$NODE_PATH:$HOME/global_npm/lib/node_modules"
+fi
 
 [[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source ~/perl5/perlbrew/etc/bashrc # This loads perlbrew
 
