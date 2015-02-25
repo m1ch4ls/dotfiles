@@ -6,6 +6,7 @@ fi
 export PATH="~/bin:~/software/bin:~/local/bin:/opt/bin:$PATH"
 
 export EDITOR="subl -w"
+export BROWSER="google-chrome:google-chrome-stable:firefox"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
