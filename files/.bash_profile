@@ -3,7 +3,7 @@ if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
   . ~/.bash_prompt
 fi
 
-export PATH="~/bin:~/software/bin:~/local/bin:/opt/bin:$PATH"
+export PATH="$HOME/bin:$HOME/software/bin:$HOME/local/bin:/opt/bin:$PATH"
 
 export EDITOR="subl -w"
 export BROWSER="google-chrome:google-chrome-stable:firefox"
