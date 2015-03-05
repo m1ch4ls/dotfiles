@@ -1,6 +1,9 @@
 # Using some customization based on: https://github.com/mathiasbynens/dotfiles
 if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
   . ~/.bash_prompt
+  
+  # Save current working dir
+  PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 fi
 
 export PATH="$HOME/bin:$HOME/software/bin:$HOME/local/bin:/opt/bin:$PATH"
@@ -114,3 +117,5 @@ alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
+
+[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
