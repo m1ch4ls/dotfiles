@@ -118,4 +118,7 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
+# execute only for interactive shell
+if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+  [[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
+fi
