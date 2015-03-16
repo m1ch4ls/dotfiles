@@ -13,16 +13,21 @@ export BROWSER="google-chrome:google-chrome-stable:firefox"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 if [ -d $HOME/global_npm ]; then
   export PATH=./node_modules/.bin:$HOME/global_npm/bin:$PATH
-
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
   export NODE_PATH="$NODE_PATH:$HOME/global_npm/lib/node_modules"
 fi
 
 [[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source ~/perl5/perlbrew/etc/bashrc # This loads perlbrew
+
+if [ -d $HOME/work/treex ]; then
+  export PATH="$HOME/work/treex/bin:$PATH"
+  export PERL5LIB="$HOME/work/treex/lib:$HOME/work/treex/oldlib:$PERL5LIB"
+  export TMT_ROOT=$HOME/.treex
+fi
 
 # Increase size of bash history
 HISTFILESIZE=10000
