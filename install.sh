@@ -46,7 +46,7 @@ rm -rf $dotfiles_dir
 unzip -q $dotfiles_zip -d /tmp
 
 echo "#=> Cleanup old files"
-rm -f $HOME/.bash_prompt
+#rm -f $HOME/.bash_prompt
 
 # Copy files
 echo "#=> Copy new files"

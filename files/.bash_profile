@@ -1,6 +1,6 @@
 # Using some customization based on: https://github.com/mathiasbynens/dotfiles
 if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
-  . ~/.git_prompt/gitstatus.sh
+  . ~/.bash_prompt
   
   # Save current working dir
   PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
