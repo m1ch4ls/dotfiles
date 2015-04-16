@@ -9,7 +9,7 @@ fi
 export PATH="$HOME/bin:$HOME/software/bin:$HOME/local/bin:/opt/bin:$PATH"
 
 export EDITOR="subl -w"
-export BROWSER="google-chrome:google-chrome-stable:firefox"
+export BROWSER="google-chrome"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
@@ -105,6 +105,12 @@ function extract() {
 # create .tar.gz archive
 function compress() {
   tar -cvzf $1 $2
+}
+
+# make a note with geeknote
+function journal-entry() {
+  local title="`date +%Y-%m-%d` - $1"
+  geeknote create --title "$title" --notebook Journal && geeknote edit --note "$title" --content WRITE  
 }
 
 # make and cd into a directory
