@@ -45,7 +45,11 @@ fi
 rm -rf $dotfiles_dir
 unzip -q $dotfiles_zip -d /tmp
 
+echo "#=> Cleanup old files"
+rm -f $HOME/.bash_prompt
+
 # Copy files
+echo "#=> Copy new files"
 find ${dotfiles_dir}/files -maxdepth 1 -mindepth 1 -exec cp -R "{}" $HOME/ \;
 
 # Set up local directory
