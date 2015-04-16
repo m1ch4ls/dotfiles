@@ -2,7 +2,7 @@
 if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
   # Save current working dir
   PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
-  
+
   source $HOME/.git_prompt/gitprompt.sh
 fi
 
@@ -29,8 +29,13 @@ if [ -d "$HOME/work/treex" ]; then
   export TMT_ROOT="$HOME/.treex"
 fi
 
+# UFAL stuff
 if [ -d "$HOME/work/tred/tred" ]; then
   export PATH="$HOME/work/tred/tred:$PATH"
+fi
+
+if [ -f /net/projects/SGE/user/sge_profile ]; then
+  source /net/projects/SGE/user/sge_profile > /dev/null 2>&1
 fi
 
 # Increase size of bash history
