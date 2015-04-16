@@ -1,6 +1,7 @@
 # Using some customization based on: https://github.com/mathiasbynens/dotfiles
 if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
-  . ~/.git_prompt/gitprompt.sh
+  GIT_PROMPT_THEME_NAME="Default"
+  source $HOME/.git_prompt/gitprompt.sh
   
   # Save current working dir
   PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
