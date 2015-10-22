@@ -1,7 +1,15 @@
 # Using some customization based on: https://github.com/mathiasbynens/dotfiles
 if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
-  # Save current working dir
-  PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
+  # Save current working dir and append history
+  PROMPT_COMMAND='pwd > "${HOME}/.cwd"; history -n; history -a'
+
+  # Disable filesize limitation
+  unset HISTFILESIZE
+  # Ignore duplicates
+  export HISTCONTROL=ignoredups:erasedups
+  # Size of history
+  export HISTSIZE=100000
+  shopt -s histappend
 
   source $HOME/.git_prompt/gitprompt.sh
 fi
@@ -31,15 +39,13 @@ fi
 
 # UFAL stuff
 if [ -d "$HOME/work/tred/tred" ]; then
+  export PERL5LIB="$HOME/work/tred/tred/tredlib:$PERL5LIB"
   export PATH="$HOME/work/tred/tred:$PATH"
 fi
 
 if [ -f /net/projects/SGE/user/sge_profile ]; then
   source /net/projects/SGE/user/sge_profile > /dev/null 2>&1
 fi
-
-# Increase size of bash history
-HISTFILESIZE=10000
 
 # locale
 LANG="en_US.UTF-8"
