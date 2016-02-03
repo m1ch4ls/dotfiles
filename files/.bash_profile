@@ -1,7 +1,7 @@
 # Using some customization based on: https://github.com/mathiasbynens/dotfiles
 if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
-  # Save current working dir and append history
-  PROMPT_COMMAND='pwd > "${HOME}/.cwd"; history -n; history -a'
+  # Save current working dir
+  PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 
   # Disable filesize limitation
   unset HISTFILESIZE
