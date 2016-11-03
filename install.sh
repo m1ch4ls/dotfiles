@@ -29,17 +29,24 @@ if [[ "$unzip_available" = "" ]]; then
   exit_with_message "#=> Make sure you have the unzip command available"
 fi
 
-echo "#=> Downloading $dotfiles_url to $dotfiles_zip"
+if [ "$1" = "local" ]; then
 
-if [[ "$curl_available" != "" ]]; then
-  curl -Ls -o $dotfiles_zip $dotfiles_url
-elif [[ "$wget_available" != "" ]]; then
-  wget -q -O $dotfiles_zip $dotfiles_url
+	echo "#=> Creating snapshot"
+	git archive --format=zip --prefix="dotfiles-master/" -o $dotfiles_zip HEAD
+
 else
-  exit_with_message "#=> Please make sure curl or wget is installed"
-fi
+	echo "#=> Downloading $dotfiles_url to $dotfiles_zip"
 
-[ -f "$dotfiles_zip" ] || exit_with_message "#=> ERROR: Couldn't download ${dotfiles_url}."
+	if [[ "$curl_available" != "" ]]; then
+	  curl -Ls -o $dotfiles_zip $dotfiles_url
+	elif [[ "$wget_available" != "" ]]; then
+	  wget -q -O $dotfiles_zip $dotfiles_url
+	else
+	  exit_with_message "#=> Please make sure curl or wget is installed"
+	fi
+
+	[ -f "$dotfiles_zip" ] || exit_with_message "#=> ERROR: Couldn't download ${dotfiles_url}."
+fi
 
 # Now, unzip the directory and
 rm -rf $dotfiles_dir

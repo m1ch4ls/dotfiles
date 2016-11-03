@@ -1,6 +1,6 @@
 alias ll="ls -lpa --color=tty"
 alias cpanm="cpanm -n"
-alias cdpmltq="cd /net/work/projects/pmltq/"
+alias apt-search="apt-cache search"
 
 #gitconfig
 alias gitignore="subl ~/.gitignore"

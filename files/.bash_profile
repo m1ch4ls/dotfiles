@@ -1,5 +1,8 @@
 # Using some customization based on: https://github.com/mathiasbynens/dotfiles
-if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+
+INTERACTIVE_SHELL=`[ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]`
+
+if $INTERACTIVE_SHELL; then
   # Save current working dir
   PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 
@@ -19,7 +22,7 @@ export PATH="$HOME/bin:$HOME/software/bin:$HOME/local/bin:/opt/bin:$PATH"
 export EDITOR="subl -w"
 export BROWSER="google-chrome"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -29,23 +32,7 @@ if [ -d "$HOME/global_npm" ]; then
   export NODE_PATH="$NODE_PATH:$HOME/global_npm/lib/node_modules"
 fi
 
-[[ -s "$HOME/perl5/perlbrew/etc/bashrc" ]] && source ~/perl5/perlbrew/etc/bashrc # This loads perlbrew
-
-if [ -d "$HOME/work/treex" ]; then
-  export PATH="$HOME/work/treex/bin:$PATH"
-  export PERL5LIB="$HOME/work/treex/lib:$HOME/work/treex/oldlib:$PERL5LIB"
-  export TMT_ROOT="$HOME/.treex"
-fi
-
-# UFAL stuff
-if [ -d "$HOME/work/tred/tred" ]; then
-  export PERL5LIB="$HOME/work/tred/tred/tredlib:$PERL5LIB"
-  export PATH="$HOME/work/tred/tred:$PATH"
-fi
-
-if [ -f /net/projects/SGE/user/sge_profile ]; then
-  source /net/projects/SGE/user/sge_profile > /dev/null 2>&1
-fi
+[ -s "$HOME/perl5/perlbrew/etc/bashrc" ] && source ~/perl5/perlbrew/etc/bashrc # This loads perlbrew
 
 # locale
 LANG="en_US.UTF-8"
@@ -122,12 +109,6 @@ function compress() {
   tar -cvzf $1 $2
 }
 
-# make a note with geeknote
-function journal-entry() {
-  local title="`date +%Y-%m-%d` - $1"
-  geeknote create --title "$title" --notebook Journal && geeknote edit --note "$title" --content WRITE  
-}
-
 # make and cd into a directory
 function mcd() {
   mkdir -p "$1" && cd "$1";
@@ -145,6 +126,6 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # execute only for interactive shell
-if [ "$PS1" ] && [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
-  [[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
+if $INTERACTIVE_SHELL; then
+  [ -f "${HOME}/.cwd" ] && cd "$(< ${HOME}/.cwd)"
 fi

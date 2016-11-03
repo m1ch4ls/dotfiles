@@ -7,15 +7,24 @@ function exit_with_message() {
   exit 1
 }
 
-curl_available=$(command -v curl)
-wget_available=$(command -v wget)
+if [ "$1" = "local" ]; then
 
-dotfiles_install=https://raw.github.com/m1ch4ls/dotfiles/master/install.sh
+	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	bash $DIR/../install.sh "local"
 
-if [[ "$curl_available" != "" ]]; then
-  curl -Ls $dotfiles_install | bash
-elif [[ "$wget_available" != "" ]]; then
-  wget -q -O - $dotfiles_install | bash
 else
-  exit_with_message "#=> Please make sure curl or wget is installed"
+
+	curl_available=$(command -v curl)
+	wget_available=$(command -v wget)
+
+	dotfiles_install=https://raw.github.com/m1ch4ls/dotfiles/master/install.sh
+
+	if [[ "$curl_available" != "" ]]; then
+	  curl -Ls $dotfiles_install | bash
+	elif [[ "$wget_available" != "" ]]; then
+	  wget -q -O - $dotfiles_install | bash
+	else
+	  exit_with_message "#=> Please make sure curl or wget is installed"
+	fi
 fi
+
