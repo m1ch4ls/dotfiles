@@ -5,7 +5,7 @@ setxkbmap -model "microsoft" -layout "us,cz" -variant ",qwerty" -option "grp:alt
 /usr/bin/numlockx on
 
 [ -f "/usr/bin/skype" ] && /usr/bin/skype &
-[ -f "~/bin/rescuetime" ] && ~/bin/rescuetime &
+[ -f "/usr/bin/rescuetime" ] && /usr/bin/rescuetime &
 [ -f "/usr/bin/parcellite" ] && /usr/bin/parcellite -d &
 [ -f "/usr/bin/AMDOverdriveCtrl" ] && /usr/bin/AMDOverdriveCtrl -m &
-[ -f "/usr/local/bin/fluxgui" ] && /usr/local/bin/fluxgui &
+[ -f "/usr/bin/fluxgui" ] && /usr/bin/fluxgui &
