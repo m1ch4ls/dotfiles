@@ -1,0 +1,1 @@
+sudo apt-get install sqlite3 libqtgui4 libqt4-sql-sqlite numlockx parcellite i3blocks
