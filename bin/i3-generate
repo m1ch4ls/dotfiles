@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd $I3_CONFIG_DIR
+if [ -f "config.local" ]; then
+  cat config.base config.local > config
+else
+  cat config.base > config
+fi

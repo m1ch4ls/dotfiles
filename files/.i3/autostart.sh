@@ -4,8 +4,9 @@ xsetroot -solid black
 setxkbmap -model "microsoft" -layout "us,cz" -variant ",qwerty" -option "grp:alt_shift_toggle"
 /usr/bin/numlockx on
 
-[ -f "/usr/bin/skype" ] && /usr/bin/skype &
-[ -f "/usr/bin/rescuetime" ] && /usr/bin/rescuetime &
-[ -f "/usr/bin/parcellite" ] && /usr/bin/parcellite -d &
-[ -f "/usr/bin/AMDOverdriveCtrl" ] && /usr/bin/AMDOverdriveCtrl -m &
-[ -f "/usr/bin/fluxgui" ] && /usr/bin/fluxgui &
+>> /dev/null which nm-applet && nm-applet &
+>> /dev/null which udiskie && udiskie &
+>> /dev/null which skype && skype &
+>> /dev/null which rescuetime && rescuetime &
+>> /dev/null which AMDOverdriveCtrl && AMDOverdriveCtrl -m &
+>> /dev/null which fluxgui && fluxgui &
