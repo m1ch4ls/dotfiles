@@ -179,22 +179,6 @@ bar {
     status_command i3blocks -c ~/.i3/i3blocks
 }
 
-# monitor outputs xrandr --current
-set $screen1 "eDP-1"
-set $screen2 "DP-1"
-
-workspace 1 output $screen1
-workspace 5 output $screen1
-workspace 7 output $screen1
-workspace 9 output $screen1
-workspace 10 output $screen1
-
-workspace 2 output $screen2
-workspace 3 output $screen2
-workspace 4 output $screen2
-workspace 6 output $screen2
-workspace 8 output $screen2
-
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
