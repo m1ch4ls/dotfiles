@@ -1,3 +1,4 @@
 #!/bin/sh
 
-i3-regenerate
+i3-generate
+i3

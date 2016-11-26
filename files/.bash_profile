@@ -17,7 +17,7 @@ if $INTERACTIVE_SHELL; then
   source $HOME/.git_prompt/gitprompt.sh
 fi
 
-export I3_CONFIG_DIR="~/.i3"
+export I3_CONFIG_DIR="$HOME/.i3"
 export PATH="$HOME/bin:$HOME/software/bin:$HOME/local/bin:/opt/bin:$PATH"
 
 export EDITOR="subl -w"
